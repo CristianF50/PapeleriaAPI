@@ -4,7 +4,7 @@ const db = require("../models");
 const Producto = db.producto;
 
 exports.list = async (req, res) => {
-
+    console.log(req.body.buscar)
     let buscar = (req.body.buscar == undefined) ? '.*' : req.body.buscar + '.*'
 
     let pipeline = [
