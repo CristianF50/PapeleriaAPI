@@ -5,7 +5,7 @@ const Producto = db.producto;
 
 exports.list = async (req, res) => {
 
-    let buscar = (req.body.search == undefined) ? '.*' : req.body.search + '.*'
+    let buscar = (req.body.buscar == undefined) ? '.*' : req.body.buscar + '.*'
 
     let pipeline = [
         {
@@ -18,7 +18,7 @@ exports.list = async (req, res) => {
                 $and: [
                     {
                         $or: [
-                            { nombre: new RegExp(buscar, "i") },
+                            { descripcion: new RegExp(buscar, "i") },
                             { sku: new RegExp(buscar, "i") },
                         ]
                     },
