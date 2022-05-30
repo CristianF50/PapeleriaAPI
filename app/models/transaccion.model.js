@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const Producto = mongoose.model(
-"Producto",    
+const Producto = mongoose.mode(
+"Transaccion",    
 new mongoose.Schema({
           descripcion: String,        
           sku: String,        
@@ -11,6 +11,10 @@ new mongoose.Schema({
           status: {            
                type: Number,            
               default: 0        
-              },    
+              },
+              timestamps: {    
+              createdAt: 'created_at', 
+              updatedAt: 'updated_at' 
+              });    
 }))
 module.exports = Producto;
