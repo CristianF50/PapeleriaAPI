@@ -38,7 +38,7 @@ require('./app/routes/usuario.routes')(app);
 require('./app/routes/producto.routes')(app);
  
 // Establecer el puesto de escucha de solicitudes
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`El servidor esta funcionando el en siguiente puerto ${PORT}.`);
 });
