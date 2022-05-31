@@ -106,14 +106,14 @@ exports.update = async (req, res) => {
 
         await producto.save()
             .then(async (cli) => {
-                return response.status(200).json({
+                return res.status(200).json({
                     success: true,
                     message: 'Cliente Actualizado!'
                 })
             })
             .catch(error => {
                 console.log(error)
-                return response.status(400).json({
+                return res.status(400).json({
                     success: false,
                     errors: error,
                     message: 'Producto no actualizado!',
