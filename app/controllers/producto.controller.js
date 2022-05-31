@@ -13,7 +13,7 @@ exports.list = async ({query}, res) => {
             $sort: {nombre: 1}
         }
     ]
-    if (req.body.buscar) {
+    if (query.buscar) {
         pipeline.push({
             $match: {
                 $and: [
