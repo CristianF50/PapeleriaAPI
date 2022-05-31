@@ -3,8 +3,10 @@ const { producto } = require("../models");
 const db = require("../models");
 const Producto = db.producto;
 
-exports.list = async (req, res) => {
+exports.list = async ({query}, res) => {
     console.log(req.body)
+
+    let body = query
     let buscar = (req.body.buscar == undefined) ? '.*' : req.body.buscar + '.*'
 
     let pipeline = [
@@ -12,7 +14,7 @@ exports.list = async (req, res) => {
             $sort: {nombre: 1}
         }
     ]
-    if (req.body.search) {
+    if (req.body.buscar) {
         pipeline.push({
             $match: {
                 $and: [
