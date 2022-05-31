@@ -10,7 +10,8 @@ new mongoose.Schema({
                ref: 'producto'
           },
           cantidad: Number,
-     }],
+     }]},
+     {timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 }));    
 
 module.exports = Producto;
