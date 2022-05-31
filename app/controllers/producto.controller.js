@@ -47,7 +47,7 @@ exports.get = async ({query}, res) => {
         let producto = null
 
         if (body.id) {
-            producto = await Producto.findOne({ _id: body.id }).populate('usuario_id')
+            producto = await Producto.findOne({ _id: body.id })
         }
 
         if (cliente != null) {
