@@ -48,7 +48,13 @@ exports.get = async ({query}, res) => {
 
         if (body.id) {
             producto = await Producto.findOne({ _id: body.id })
+            return res.status(200).json({
+                success: true,
+                message: 'Consulta exitosa',
+                data: producto
+            })
         }
+
 
         else {
             return response.status(400).json({
