@@ -36,7 +36,8 @@ app.get("/", (req, res) => {
 require('./app/routes/auth.routes')(app);
 require('./app/routes/usuario.routes')(app);
 require('./app/routes/producto.routes')(app);
- 
+require('./app/routes/transaccion.routes')(app);
+
 // Establecer el puesto de escucha de solicitudes
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
