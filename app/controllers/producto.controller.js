@@ -90,6 +90,8 @@ exports.add = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
+    let body = req.body
+
     Producto.findOne({ _id: body.id })
     .then(async (producto) => {
 
