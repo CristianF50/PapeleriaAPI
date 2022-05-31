@@ -50,17 +50,10 @@ exports.get = async ({query}, res) => {
             producto = await Producto.findOne({ _id: body.id })
         }
 
-        if (cliente != null) {
-            return response.status(200).json({
-                success: true,
-                message: 'Consulta exitosa',
-                data: cliente
-            });
-        }
         else {
             return response.status(400).json({
                 success: false,
-                message: 'No existe el cliente.',
+                message: 'No existe el producto.',
             })
         }
 };
