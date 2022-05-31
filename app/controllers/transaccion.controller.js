@@ -2,6 +2,7 @@ const config = require("../config/auth.config");
 const { producto } = require("../models");
 const db = require("../models");
 const Transaccion = db.transaccion;
+const Producto = db.producto;
 
 exports.list = async ({query}, res) => {
 
@@ -69,6 +70,17 @@ exports.get = async ({query}, res) => {
 exports.add = async (req, res) => {
 
     let transaccion = new Transaccion(req.body);
+
+    let carrito = req.body.carrito
+
+    carrito.map((item) => {
+        Producto.findOne({_id: item.producto_id}).then(
+            async (producto) => {
+                producto.cantidad = producto.cantidad - item.cantidad
+                await producto.save()
+            }
+        )
+    })
 
     console.log('new servicio', req.body);
 
