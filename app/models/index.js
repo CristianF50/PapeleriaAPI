@@ -5,5 +5,6 @@ db.mongoose = mongoose;
 db.usuario = require("./usuario.model");
 db.rol = require("./rol.model");
 db.producto = require("./producto.model")
+db.transaccion = require("./transaccion.model")
 db.ROLES = ["usuario", "administrador"];
 module.exports = db;
