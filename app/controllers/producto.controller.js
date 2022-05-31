@@ -7,7 +7,7 @@ exports.list = async ({query}, res) => {
     console.log(req.body)
 
     let body = query
-    let buscar = (req.body.buscar == undefined) ? '.*' : req.body.buscar + '.*'
+    let buscar = (query.buscar == undefined) ? '.*' : query.buscar + '.*'
 
     let pipeline = [
         {
