@@ -10,7 +10,7 @@ module.exports = function(app) {
   });
   app.post("/api/producto/add", [authJwt.verificarToken, authJwt.esAdmin], controller.add);
   app.get("/api/producto/list", [authJwt.verificarToken], controller.list);
-  app.post("/api/producto/get", [authJwt.verificarToken, authJwt.esAdmin], controller.get);
+  app.get("/api/producto/get", [authJwt.verificarToken, authJwt.esAdmin], controller.get);
   app.post("/api/producto/update", [authJwt.verificarToken, authJwt.esAdmin], controller.update);
   
 };
